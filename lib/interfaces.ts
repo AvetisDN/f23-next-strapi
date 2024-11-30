@@ -46,3 +46,40 @@ export interface FeaturesSectionProps {
   description: string;
   feature: FeatureProps[];
 }
+
+export interface LogoProps {
+  label?: string;
+}
+
+export interface HeaderProps {
+  data: {
+    logo: {
+      id: number;
+      label: string;
+    };
+    ctaButton: {
+      id: number;
+      text: string;
+      url: string;
+      isExternal: boolean;
+    };
+  };
+}
+
+export interface SocialLink {
+  id: number;
+  url: string;
+  label: string;
+  icon: string;
+}
+
+export interface FooterProps {
+  data: {
+    logo: {
+      id: number;
+      label: string;
+    };
+    copyright: string;
+    social: SocialLink[];
+  };
+}

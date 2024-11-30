@@ -24,6 +24,8 @@ async function fetchData(url: string) {
 }
 
 export async function getHomePageData() {
+  // throw new Error("Error");
+
   const query = qs.stringify({
     populate: {
       blocks: {
@@ -50,6 +52,31 @@ export async function getHomePageData() {
     },
   });
   const url = new URL("/api/home-page", baseURL);
+  url.search = query;
+
+  return await fetchData(url.href);
+}
+
+export async function getGlobalData() {
+  const query = qs.stringify({
+    populate: [
+      "header.logo",
+      "header.ctaButton",
+      "footer.logo",
+      "footer.social",
+    ],
+  });
+  const url = new URL("/api/global", baseURL);
+  url.search = query;
+
+  return await fetchData(url.href);
+}
+
+export async function getGlobalMeta() {
+  const query = qs.stringify({
+    fields: ["title", "description"],
+  });
+  const url = new URL("/api/global", baseURL);
   url.search = query;
 
   return await fetchData(url.href);

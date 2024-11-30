@@ -8,7 +8,7 @@ const HeroSection = ({ data }: { readonly data: HeroSectionProps }) => {
   const { heading, subHeading, image, link } = data;
 
   return (
-    <div className="bg-card rounded-md w-full relative overflow-hidden hero-section">
+    <div className="bg-card rounded-md w-full relative overflow-hidden container mx-auto h-[40vw] min-h-[400px] max-h-[60vh]">
       <StrapiImage
         src={image.url}
         alt={image.alternativeText || "bg"}

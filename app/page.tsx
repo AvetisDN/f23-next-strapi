@@ -17,7 +17,5 @@ export default async function Home() {
   const strapiData = await getHomePageData();
   const { blocks } = strapiData?.data || [];
 
-  console.log(blocks[0]);
-
   return <>{blocks.map(blockRenderer)}</>;
 }

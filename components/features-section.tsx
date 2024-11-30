@@ -4,7 +4,7 @@ import FeaturesItem from "./features-item";
 const FeaturesSection = ({ data }: { readonly data: FeaturesSectionProps }) => {
   const { feature, title, description } = data;
   return (
-    <div className="container mx-auto p-4 flex flex-col gap-4 mt-6">
+    <div className="container mx-auto py-4 px-4 md:px-0 flex flex-col gap-4 mt-6">
       <div className="text-center">
         <h2 className="mb-2 text-2xl lg:text-3xl font-bold">{title}</h2>
         <p className="text-lg text-muted">{description}</p>
