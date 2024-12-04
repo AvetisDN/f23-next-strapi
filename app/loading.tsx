@@ -1,6 +1,6 @@
 import React from "react";
 
-const loading = () => {
+const LoadingPage = () => {
   return (
     <div className="flex-grow grid place-items-center">
       <div className="lds-ellipsis">
@@ -13,4 +13,4 @@ const loading = () => {
   );
 };
 
-export default loading;
+export default LoadingPage;

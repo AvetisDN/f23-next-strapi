@@ -83,3 +83,31 @@ export interface FooterProps {
     social: SocialLink[];
   };
 }
+
+export interface RegisterProps {
+  username: string;
+  email: string;
+  password: string;
+}
+export interface LoginProps {
+  identifier: string;
+  password: string;
+}
+
+export interface StrapiErrorsProps {
+  message: string | null;
+  name: string;
+  status: string | null;
+}
+
+export interface SubmitButtonProps {
+  text: string;
+  loadingText: string;
+  className?: string;
+  loading?: boolean;
+}
+
+export interface UserInfoProps {
+  username: string;
+  email: string;
+}

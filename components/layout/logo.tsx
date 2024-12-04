@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoIcon from "./icons/logo-icon";
+import LogoIcon from "../icons/logo-icon";
 import { LogoProps } from "@/lib/interfaces";
 
 const Logo = ({ label = "LOGO" }: Readonly<LogoProps>) => {

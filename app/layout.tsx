@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import SiteHeader from "@/components/site-header";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+import SiteHeader from "@/components/layout/site-header";
 import { getGlobalData, getGlobalMeta } from "@/data/loader";
-import SiteFooter from "@/components/site-footer";
+import SiteFooter from "@/components/layout/site-footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadata = await getGlobalMeta();
@@ -31,7 +31,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="md:p-4 flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen">
             <SiteHeader data={globalData.data.header} />
             <main className="mt-4 flex-grow flex flex-col">{children}</main>
             <SiteFooter data={globalData.data.footer} />

@@ -1,9 +1,9 @@
 import { SocialLink } from "@/lib/interfaces";
 import Link from "next/link";
 import React from "react";
-import VKIcon from "./icons/vk-icon";
-import TelegramIcon from "./icons/telegram-icon";
-import GithubIcon from "./icons/github-icon";
+import VKIcon from "../icons/vk-icon";
+import TelegramIcon from "../icons/telegram-icon";
+import GithubIcon from "../icons/github-icon";
 import TooltipItem from "./tooltip-item";
 
 function getIcon(name: string) {

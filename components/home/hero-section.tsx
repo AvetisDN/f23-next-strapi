@@ -1,11 +1,17 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 import { HeroSectionProps } from "@/lib/interfaces";
-import StrapiImage from "./strapi-image";
+import StrapiImage from "../strapi-image";
+import { getMe } from "@/services/get-me";
 
-const HeroSection = ({ data }: { readonly data: HeroSectionProps }) => {
+const HeroSection = async ({ data }: { readonly data: HeroSectionProps }) => {
   const { heading, subHeading, image, link } = data;
+  const user = await getMe();
+
+  const isLoggedIn = user?.ok;
+  const linkUrl = isLoggedIn ? "/dashboard" : link.url;
+  const linkText = isLoggedIn ? "Панель управления" : link.text;
 
   return (
     <div className="bg-card rounded-md w-full relative overflow-hidden container mx-auto h-[40vw] min-h-[400px] max-h-[60vh]">
@@ -22,11 +28,11 @@ const HeroSection = ({ data }: { readonly data: HeroSectionProps }) => {
           {subHeading}
         </p>
         <Link
-          href={link.url}
+          href={linkUrl}
           target={`${link.isExternal ? "__blank" : undefined}`}
         >
           <Button size="lg" className="uppercase tracking-wide">
-            {link.text}
+            {linkText}
           </Button>
         </Link>
       </div>
