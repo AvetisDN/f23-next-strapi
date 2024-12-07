@@ -6,7 +6,7 @@ const Logo = ({ label = "LOGO" }: Readonly<LogoProps>) => {
   return (
     <Link href="/" className="flex gap-1 text-primary">
       <LogoIcon size={32} />
-      <span className="font-bold text-xl">{label}</span>
+      <span className="font-bold text-xl hidden md:block">{label}</span>
     </Link>
   );
 };

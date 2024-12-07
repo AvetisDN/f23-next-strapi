@@ -66,7 +66,17 @@
     @apply bg-background text-foreground;
   }
 }
-
+@layer components {
+  .divider {
+    @apply w-full mx-auto my-2 bg-foreground opacity-20 h-px;
+  }
+  .dashboard-link {
+    @apply flex gap-1 items-center p-2 rounded hover:bg-background transition-colors;
+  }
+  .dashboard-link.active {
+    @apply bg-background;
+  }
+}
 .lds-ellipsis {
   /* change color here */
   color: var(--foreground);

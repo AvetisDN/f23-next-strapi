@@ -111,3 +111,26 @@ export interface UserInfoProps {
   username: string;
   email: string;
 }
+
+export interface AccountFormProps {
+  id: string;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  bio: string;
+  credits: number;
+}
+export interface AvatarFormProps {
+  id: string;
+  url: string;
+  alternativeText: string;
+}
+
+export interface ImagePickerProps {
+  id: string;
+  name: string;
+  label: string;
+  showCard?: boolean;
+  defaultValue?: string;
+}

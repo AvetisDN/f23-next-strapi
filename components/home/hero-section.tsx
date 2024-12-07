@@ -14,7 +14,7 @@ const HeroSection = async ({ data }: { readonly data: HeroSectionProps }) => {
   const linkText = isLoggedIn ? "Панель управления" : link.text;
 
   return (
-    <div className="bg-card rounded-md w-full relative overflow-hidden container mx-auto h-[40vw] min-h-[400px] max-h-[60vh]">
+    <div className="bg-card rounded-md w-full relative overflow-hidden container mx-auto h-[40vw] min-h-[400px] max-h-[60vh] mt-4">
       <StrapiImage
         src={image.url}
         alt={image.alternativeText || "bg"}

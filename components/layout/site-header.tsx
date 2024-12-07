@@ -28,9 +28,12 @@ const SiteHeader = async ({ data }: Readonly<HeaderProps>) => {
   const user = await getMe();
 
   return (
-    <header className="p-4 bg-card flex gap-5 items-center shadow-md sticky top-0 z-50 ">
+    <header className="p-4 bg-card flex gap-5 items-center shadow-md sticky top-0 z-50 flex-wrap">
       <Logo label={logo.label} />
-      <div className="flex-grow">search...</div>
+      <div className="flex-grow order-1 w-full sm:order-none sm:w-auto">
+        search...
+      </div>
+      <div className="flex-grow sm:hidden"></div>
       {user.ok && <UserInfo userData={user.data} />}
       {!user.ok && (
         <Link href={ctaButton.url}>

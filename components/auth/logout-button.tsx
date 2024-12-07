@@ -8,7 +8,7 @@ const LogoutButton = () => {
     <form action={logoutAction}>
       <Button variant="ghost">
         <LogOut />
-        Выход
+        <span className="hidden md:inline-block">Выход</span>
       </Button>
     </form>
   );
