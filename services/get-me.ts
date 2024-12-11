@@ -1,10 +1,19 @@
 import { getStrapiURL } from "@/lib/utils";
 import { getJWT } from "./get-toiken";
+import qs from "qs";
 
 export async function getMe() {
   const baseUrl = getStrapiURL();
 
   const url = new URL("/api/users/me", baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"],
+      },
+    },
+  });
 
   const jwt = await getJWT();
   if (!jwt) {

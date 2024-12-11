@@ -124,13 +124,12 @@ export interface AccountFormProps {
 export interface AvatarFormProps {
   id: string;
   url: string;
-  alternativeText: string;
+  alternativeText: string | null;
 }
 
 export interface ImagePickerProps {
   id: string;
   name: string;
-  label: string;
   showCard?: boolean;
   defaultValue?: string;
 }

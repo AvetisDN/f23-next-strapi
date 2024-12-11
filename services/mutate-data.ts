@@ -1,7 +1,11 @@
 import { getStrapiURL } from "@/lib/utils";
 import { getJWT } from "./get-toiken";
 
-export async function mutateData(method: string, path: string, payload: any) {
+export async function mutateData(
+  method: string,
+  path: string,
+  payload: any = {}
+) {
   const baseUrl = getStrapiURL();
   const jwt = await getJWT();
   const url = new URL(path, baseUrl);

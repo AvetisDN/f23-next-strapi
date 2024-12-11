@@ -23,8 +23,6 @@ const INITIAL_STATE = {
 const FormLogin = () => {
   const [formState, formAction] = useActionState(loginAction, INITIAL_STATE);
 
-  console.log(formState);
-
   return (
     <div className="w-full max-w-md">
       <form action={formAction}>

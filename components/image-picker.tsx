@@ -1,8 +1,10 @@
 "use client";
 import { ImagePickerProps } from "@/lib/interfaces";
 import React, { useRef, useState } from "react";
-import { Label } from "./ui/label";
 import { Input } from "./ui/input";
+import ImageCard from "./image-card";
+import { Label } from "./ui/label";
+import { XCircle } from "lucide-react";
 
 function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
   const reader = new FileReader();
@@ -13,7 +15,6 @@ function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
 const ImagePicker = ({
   id,
   name,
-  label,
   defaultValue,
 }: Readonly<ImagePickerProps>) => {
   const fileInput = useRef<HTMLInputElement>(null);
@@ -22,6 +23,7 @@ const ImagePicker = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+
     if (file) {
       generateDataUrl(file, setDataUrl);
     }
@@ -29,8 +31,20 @@ const ImagePicker = ({
 
   return (
     <div>
-      <Label htmlFor={name}>{label}</Label>
+      <Label
+        className="p-6 text-center bg-background rounded-xl block cursor-pointer"
+        htmlFor={id}
+      >
+        {dataUrl ? (
+          <div className=" relative aspect-square">
+            <ImageCard dataUrl={dataUrl} />
+          </div>
+        ) : (
+          <div className=" font-bold">Изображение не выбрано</div>
+        )}
+      </Label>
       <Input
+        className="hidden"
         type="file"
         id={id}
         name={name}
