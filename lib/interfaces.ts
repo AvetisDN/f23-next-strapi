@@ -97,7 +97,7 @@ export interface LoginProps {
 export interface StrapiErrorsProps {
   message: string | null;
   name: string;
-  status: string | null;
+  status?: string | null;
 }
 
 export interface SubmitButtonProps {
