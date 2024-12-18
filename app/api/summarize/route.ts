@@ -35,11 +35,10 @@ async function generateSummary(content: string, template: string) {
   });
 
   const outputParser = new StringOutputParser();
-  const chain = prompt.pipe(model);
+  const chain = prompt.pipe(model).pipe(outputParser);
 
   try {
-    const summary = await chain.invoke({ text: content.slice(0, 1) });
-    console.log(summary);
+    const summary = await chain.invoke({ text: content });
 
     return summary;
   } catch (error) {

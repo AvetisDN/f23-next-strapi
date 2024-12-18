@@ -133,3 +133,24 @@ export interface ImagePickerProps {
   showCard?: boolean;
   defaultValue?: string;
 }
+
+export interface SummaryPayload {
+  data: {
+    title?: string;
+    videoId: string;
+    summary: string;
+    authorId?: string;
+  };
+}
+
+export interface SummaryCardProps {
+  documentId: string;
+  title: string;
+  summary: string;
+}
+
+export interface SummarySingleProps {
+  params: {
+    videoId: string;
+  };
+}

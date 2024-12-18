@@ -6,16 +6,22 @@ import { Input } from "../ui/input";
 import SubmitButton from "../submit-button";
 import { generateSummaryService } from "@/services/summary-service";
 import { getVideoId } from "@/lib/utils";
+import { createSummaryAction } from "@/data/summary-actions";
+import { useRouter } from "next/navigation";
 
 const INITIAL_STATE: StrapiErrorsProps = {
   message: null,
   name: "",
 };
 
+const defaultVideoID: string = "GhIm-Dk1pzk";
+
 const SummaryForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<StrapiErrorsProps>(INITIAL_STATE);
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>(defaultVideoID);
+
+  const router = useRouter();
 
   const { toast } = useToast();
 
@@ -32,26 +38,58 @@ const SummaryForm = () => {
         variant: "destructive",
       });
       setLoading(false);
-      setValue("");
+      setValue(defaultVideoID);
       setError({
         ...INITIAL_STATE,
         message: "Неверная ссылка или ID видео!",
       });
+
       return;
     }
 
     const summaryResponse = await generateSummaryService(videoId);
 
-    if (summaryResponse.data) {
+    if (summaryResponse.error) {
+      toast({
+        title: "Что-то пошло не так 1",
+        variant: "destructive",
+      });
+      setLoading(false);
+      setValue(defaultVideoID);
+      setError({
+        ...INITIAL_STATE,
+        message: "Что-то пошло не так 1",
+      });
+      return;
+    }
+
+    const summaryText = summaryResponse.data as string;
+    const payload = {
+      data: {
+        title: summaryText.match(/["*]{1,2}.+["*]{1,2}/m)?.[0] || "video",
+        videoId: videoId,
+        summary: summaryText,
+      },
+    };
+
+    try {
+      await createSummaryAction(payload);
       toast({
         title: "Видео пересказано!",
         variant: "success",
       });
-    } else {
+      setValue(defaultVideoID);
+      setError(INITIAL_STATE);
+      router.push("/dashboard/summaries");
+    } catch (error) {
+      console.log(error);
+
       toast({
-        title: summaryResponse.error,
+        title: "Что-то пошло не так 2",
         variant: "destructive",
       });
+      setLoading(false);
+      return;
     }
     setLoading(false);
   }

@@ -27,10 +27,7 @@ const HeroSection = async ({ data }: { readonly data: HeroSectionProps }) => {
         <p className="text-base font-medium md:text-lg xl:text-xl text-center">
           {subHeading}
         </p>
-        <Link
-          href={linkUrl}
-          target={`${link.isExternal ? "__blank" : undefined}`}
-        >
+        <Link href={linkUrl}>
           <Button size="lg" className="uppercase tracking-wide">
             {linkText}
           </Button>

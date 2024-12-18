@@ -1,10 +1,11 @@
 import { getStrapiURL } from "@/lib/utils";
+import { getJWT } from "@/services/get-toiken";
 import qs from "qs";
 
 const baseURL = getStrapiURL();
 
 async function fetchData(url: string) {
-  const jwt = null;
+  const jwt = await getJWT();
   const headers = {
     method: "GET",
     headers: {
@@ -80,4 +81,14 @@ export async function getGlobalMeta() {
   url.search = query;
 
   return await fetchData(url.href);
+}
+
+export async function getSummaries() {
+  const url = new URL("/api/summaries", baseURL);
+  return await fetchData(url.href);
+}
+export async function getSummaryById(id: string) {
+  const url = new URL(`/api/summaries/${id}`, baseURL);
+  const res = await fetchData(url.href);
+  return res.data;
 }
