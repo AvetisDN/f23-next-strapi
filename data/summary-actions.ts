@@ -16,3 +16,15 @@ export async function createSummaryAction(payload: SummaryPayload) {
 
   await mutateData("POST", "/api/summaries", payload);
 }
+
+export async function deleteSummaryAction(summaryId: string) {
+  const jwt = await getJWT();
+  if (!jwt) throw new Error("Доступ запрещён!");
+  const response = await mutateData("DELETE", `/api/summaries/${summaryId}`);
+
+  if (!response) {
+    return;
+  }
+
+  redirect("/dashboard/summaries");
+}

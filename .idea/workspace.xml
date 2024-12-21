@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2119abb8-c7d9-4f43-b249-4e757bf75f9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/summarize/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/summarize/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dashboard/summaries/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/summaries/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/summary/summary-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/summary/summary-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/summary-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/summary-actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/interfaces.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +19,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2pPEd7vOYYIqtYxerkn30U1gB9v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,7 +34,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/STEP/F23/NEXT/next-strapi/frontend",
     "node.js.detected.package.eslint": "true",
@@ -55,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732659394275</updated>
       <workItem from="1732659395311" duration="35000" />
+      <workItem from="1734772894361" duration="161000" />
     </task>
     <servers />
   </component>

@@ -1,47 +1,72 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SearchForm from "@/components/summary/search-form";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { getSummaries } from "@/data/loader";
-import { SummaryCardProps } from "@/lib/interfaces";
+import { SearchParamsProps, SummaryCardProps } from "@/lib/interfaces";
 import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
+import moment from "moment";
+import SummaryPagination from "@/components/summary/summary-pagination";
 
 const SummaryCard = ({
   documentId,
   title,
   summary,
+  createdAt,
 }: Readonly<SummaryCardProps>) => (
-  <Link href={`/dashboard/summaries/${documentId}`}>
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-xl text-primary">
+  <Card>
+    <CardHeader>
+      <Link href={`/dashboard/summaries/${documentId}`}>
+        <CardTitle className="text-primary text-base h-[72px]">
           {title || "Пересказ видео"}
         </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Markdown className="prose prose-zinc prose-sm prose-headings:text-gray-600 dark:prose-headings:text-gray-400 prose-h3:text-[16px] dark:prose-p:text-gray-300">
-          {summary.slice(0, 90)}
-        </Markdown>
+      </Link>
+      <p>{moment(createdAt).format("DD.MM.YYYY HH:mm")}</p>
+    </CardHeader>
+    <CardContent className="h-[200px] overflow-hidden">
+      <Markdown className="prose prose-zinc prose-sm prose-headings:text-gray-600 dark:prose-headings:text-gray-400 prose-h3:text-[16px] dark:prose-p:text-gray-300 dark:prose-strong:text-gray-200 dark:prose-hr:border-gray-600 prose-hr:my-4">
+        {summary.slice(0, 200)}
+      </Markdown>
+    </CardContent>
+    <CardFooter className="flex justify-between">
+      <Link href={`/dashboard/summaries/${documentId}`}>
         <p className="mt-2 opacity-50">[подробнее...]</p>
-      </CardContent>
-    </Card>
-  </Link>
+      </Link>
+    </CardFooter>
+  </Card>
 );
 
-const page = async () => {
-  const { data } = await getSummaries();
-  if (!data || !data.length)
-    return (
-      <div className="w-full h-full grid place-items-center">
-        <h2 className="font-bold opacity-25 uppercase tracking-wide text-2xl">
-          Переводов пока нет
-        </h2>
-      </div>
-    );
+const page = async ({ searchParams }: SearchParamsProps) => {
+  const params = await searchParams;
+  const searchQuery = params?.search ?? "";
+
+  const { data } = await getSummaries(searchQuery);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-      {data.map((item: SummaryCardProps) => (
-        <SummaryCard key={item.documentId} {...item} />
-      ))}
+    <div className="flex flex-col gap-5 w-full">
+      <SearchForm />
+      {!data || !data.length ? (
+        <div className="w-full h-full grid place-items-center">
+          <h2 className="font-bold opacity-25 uppercase tracking-wide text-2xl">
+            Переводов пока нет
+          </h2>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-5 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 items-start">
+            {data.map((item: SummaryCardProps) => (
+              <SummaryCard key={item.documentId} {...item} />
+            ))}
+          </div>
+          <SummaryPagination />
+        </div>
+      )}
     </div>
   );
 };

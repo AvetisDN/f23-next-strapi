@@ -83,10 +83,30 @@ export async function getGlobalMeta() {
   return await fetchData(url.href);
 }
 
-export async function getSummaries() {
+export async function getSummaries(
+  searchString: string = "",
+  currentPage: number = 1
+) {
+  const PAGE_SIZE = 1;
+
+  const query = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      $or: [
+        { title: { $containsi: searchString } },
+        { summary: { $containsi: searchString } },
+      ],
+    },
+    pagination: {
+      pageSize: PAGE_SIZE,
+      page: currentPage,
+    },
+  });
   const url = new URL("/api/summaries", baseURL);
+  url.search = query;
   return await fetchData(url.href);
 }
+
 export async function getSummaryById(id: string) {
   const url = new URL(`/api/summaries/${id}`, baseURL);
   const res = await fetchData(url.href);

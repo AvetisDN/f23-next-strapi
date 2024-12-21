@@ -14,7 +14,7 @@ const INITIAL_STATE: StrapiErrorsProps = {
   name: "",
 };
 
-const defaultVideoID: string = "GhIm-Dk1pzk";
+const defaultVideoID: string = "";
 
 const SummaryForm = () => {
   const [loading, setLoading] = useState(false);
@@ -66,7 +66,9 @@ const SummaryForm = () => {
     const summaryText = summaryResponse.data as string;
     const payload = {
       data: {
-        title: summaryText.match(/["*]{1,2}.+["*]{1,2}/m)?.[0] || "video",
+        title:
+          summaryText.match(/["]{1}.+["]{1}/m)?.[0].replace(/\"/g, "") ||
+          "video",
         videoId: videoId,
         summary: summaryText,
       },

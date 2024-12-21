@@ -15,7 +15,7 @@
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 55.9%;
-    --muted-foreground: 220 8.9% 36.1%;
+    --muted-foreground: 220 8.9% 96.1%;
     --accent: 347 77% 50%;
     --accent-foreground: 327 73% 97%;
     --destructive: 0 84.2% 60.2%;
@@ -41,8 +41,8 @@
     --primary-foreground: 220 13% 10%;
     --secondary: 220 13% 30%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 220 13% 50%;
-    --muted-foreground: 220 13% 40%;
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 13% 50%;
     --accent: 327 87% 82%;
     --accent-foreground: 220 13% 10%;
     --destructive: 350 45% 50%;

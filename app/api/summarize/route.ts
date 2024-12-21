@@ -8,7 +8,7 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 const TEMPLATE = `
   INSTRUCTIONS:
     For the this {text} complete the following steps.
-    Generate the title for based on content provided
+    Generate the title for based on content provided and put it in quotation marks
     Summarize the following content and include 5 key topics, writing in first person using normal tone of voice.
 
     Write a youtube video description
