@@ -6,6 +6,7 @@ const baseURL = getStrapiURL();
 
 async function fetchData(url: string) {
   const jwt = await getJWT();
+  console.log(jwt);
   const headers = {
     method: "GET",
     headers: {
@@ -17,6 +18,7 @@ async function fetchData(url: string) {
   try {
     const response = await fetch(url, jwt ? headers : {});
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.error(error);

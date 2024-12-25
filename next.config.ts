@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
       {
+        protocol: "https",
+        hostname: "sincere-bracelet-d4b0b99209.media.strapiapp.com",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
         port: "1337",
