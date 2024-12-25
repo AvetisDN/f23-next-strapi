@@ -9,7 +9,7 @@ const coookieConfig = {
   path: "/",
   domain: process.env.HOST ?? "localhost",
   httpOnly: true,
-  secure: false,
+  secure: process.env.NODE_ENV === "production",
 };
 
 const messageUsername = "Имя пользователя должно содержать от 3 до 20 символов";

@@ -47,7 +47,7 @@ const AccountForm = ({ data }: { readonly data: AccountFormProps }) => {
         variant: "success",
       });
     }
-  }, [formState]);
+  }, [formState, toast]);
 
   return (
     <form className="flex flex-col gap-5 col-span-2" action={formAction}>

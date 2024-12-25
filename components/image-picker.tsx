@@ -4,7 +4,6 @@ import React, { useRef, useState } from "react";
 import { Input } from "./ui/input";
 import ImageCard from "./image-card";
 import { Label } from "./ui/label";
-import { XCircle } from "lucide-react";
 
 function generateDataUrl(file: File, callback: (imageUrl: string) => void) {
   const reader = new FileReader();

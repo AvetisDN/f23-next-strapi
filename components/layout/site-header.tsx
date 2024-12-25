@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import { getMe } from "@/services/get-me";
 import { UserInfoProps } from "./../../lib/interfaces";
 import LogoutButton from "../auth/logout-button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 import SummaryForm from "../summary/summary-form";
 
 const UserInfo = ({ userData }: { readonly userData: UserInfoProps }) => (

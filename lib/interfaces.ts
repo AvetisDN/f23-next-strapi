@@ -147,19 +147,15 @@ export interface SummaryCardProps {
   documentId: string;
   title: string;
   summary: string;
-  createdAt: any;
+  createdAt: string;
 }
 
 export interface SummarySingleProps {
-  params: {
-    summaryId: string;
-  };
+  summaryId: string;
 }
 export interface SearchParamsProps {
-  searchParams: {
-    search?: string;
-    page?: string;
-  };
+  search?: string;
+  page?: string;
 }
 
 export interface YtPlayerProps {
@@ -175,8 +171,11 @@ export interface PaginationArrowProps {
   href: string;
   isDisabled: boolean;
 }
+export interface CreatePageUrlInterface {
+  (arg1: number): string;
+}
 export interface PaginationNumberProps {
   current: number;
   pageCount: number;
-  createPageURL: any;
+  createPageURL: CreatePageUrlInterface;
 }

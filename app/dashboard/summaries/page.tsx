@@ -42,10 +42,9 @@ const SummaryCard = ({
   </Card>
 );
 
-const page = async ({ searchParams }: SearchParamsProps) => {
-  const params = await searchParams;
-  const searchQuery = params?.search ?? "";
-  const currentPage = Number(params?.page) || 1;
+const page = async ({ params }: { params: Promise<SearchParamsProps> }) => {
+  const searchQuery = (await params).search ?? "";
+  const currentPage = Number((await params).page) || 1;
 
   const { data, meta } = await getSummaries(searchQuery, currentPage);
 

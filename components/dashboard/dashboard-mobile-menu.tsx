@@ -1,17 +1,13 @@
 import { Dock, LayoutDashboard, Menu, User2 } from "lucide-react";
 import React from "react";
-import { Button } from "@/components/ui/button";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import DashboardMenu from "./dashboard-menu";
 import Link from "next/link";
 
 const DashboardMobileMenu = () => {

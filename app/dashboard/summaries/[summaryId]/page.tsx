@@ -7,9 +7,8 @@ import { TabsContent } from "@radix-ui/react-tabs";
 import React from "react";
 import Markdown from "react-markdown";
 
-const page = async (props: Readonly<SummarySingleProps>) => {
-  const params = await props?.params;
-  const { summaryId } = params;
+const page = async ({ params }: { params: Promise<SummarySingleProps> }) => {
+  const summaryId = (await params).summaryId;
   const data = await getSummaryById(summaryId);
 
   return (

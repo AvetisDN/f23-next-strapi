@@ -7,7 +7,7 @@ const blockComponents = {
   "layout.features-section": FeaturesSection,
 };
 
-function blockRenderer(block: any) {
+function blockRenderer(block) {
   const Component =
     blockComponents[block.__component as keyof typeof blockComponents];
   return Component ? <Component key={block.id} data={block} /> : null;
