@@ -175,3 +175,8 @@ export interface PaginationArrowProps {
   href: string;
   isDisabled: boolean;
 }
+export interface PaginationNumberProps {
+  current: number;
+  pageCount: number;
+  createPageURL: any;
+}

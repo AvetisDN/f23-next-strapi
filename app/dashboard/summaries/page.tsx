@@ -45,8 +45,11 @@ const SummaryCard = ({
 const page = async ({ searchParams }: SearchParamsProps) => {
   const params = await searchParams;
   const searchQuery = params?.search ?? "";
+  const currentPage = Number(params?.page) || 1;
 
-  const { data } = await getSummaries(searchQuery);
+  const { data, meta } = await getSummaries(searchQuery, currentPage);
+
+  const pageCount = meta?.pagination?.pageCount;
 
   return (
     <div className="flex flex-col gap-5 w-full">
@@ -64,7 +67,7 @@ const page = async ({ searchParams }: SearchParamsProps) => {
               <SummaryCard key={item.documentId} {...item} />
             ))}
           </div>
-          <SummaryPagination />
+          <SummaryPagination pageCount={pageCount} />
         </div>
       )}
     </div>
