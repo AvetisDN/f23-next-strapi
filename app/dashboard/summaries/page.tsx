@@ -47,8 +47,9 @@ const page = async ({
 }: {
   searchParams: Promise<SearchParamsProps>;
 }) => {
-  const searchQuery = (await searchParams).search ?? "";
-  const currentPage = Number((await searchParams).page) || 1;
+  const params = await searchParams;
+  const searchQuery = params?.search ?? "";
+  const currentPage = Number(params?.page) || 1;
 
   const { data, meta } = await getSummaries(searchQuery, currentPage);
 
