@@ -51,14 +51,14 @@ const SummaryForm = () => {
 
     if (summaryResponse.error) {
       toast({
-        title: "Что-то пошло не так 1",
+        title: summaryResponse.error,
         variant: "destructive",
       });
       setLoading(false);
       setValue(defaultVideoID);
       setError({
         ...INITIAL_STATE,
-        message: "Что-то пошло не так 1",
+        message: summaryResponse.error,
       });
       return;
     }
